@@ -11,3 +11,24 @@
  *= require_self
  *= require_tree .
  */
+html, body {
+	width: 100%;
+	height: 100%;
+	background: #111111;
+	color: #EEEEEE;
+}
+
+body {
+	font-family: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosBold', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+	font-weight: 600;
+	font-stretch: normal;
+	font-weight: bold;
+}
+
+#nabla {
+	font-size: 400pt;
+	text-align: center;
+	line-height: 1;
+	color: #CC0071;
+	/*color: #FF008D;*/
+}
