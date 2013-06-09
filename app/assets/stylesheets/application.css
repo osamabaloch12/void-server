@@ -8,14 +8,13 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require_tree .
+ *= require_self
  */
-html, body {
-	width: 100%;
-	height: 100%;
-	background: #111111;
-	color: #EEEEEE;
+
+html {
+	background-color: #111111;
+	color: #CC0071;
 }
 
 body {
@@ -23,12 +22,33 @@ body {
 	font-weight: 600;
 	font-stretch: normal;
 	font-weight: bold;
+	text-align: center;
+}
+
+/* border-top = sqrt(3 * border-left^2) */
+.triangle {
+	width: 0;
+	height: 0;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	border-left-style: solid;
+	border-right-style: solid;
 }
 
 #nabla {
-	font-size: 400pt;
-	text-align: center;
-	line-height: 1;
-	color: #CC0071;
-	/*color: #FF008D;*/
+	margin-top: 50px;
+	display: inline-block;
+	border-left-width: 300px;
+	border-right-width: 300px;
+	border-top: 520px solid #CC0071;
+}
+
+#nabla #inner {
+	display: inline-block;
+	border-left-width: 150px;
+	border-right-width: 150px;
+	border-top: 260px solid #111111;
+	position: relative;
+	top: -435px;
+	left: -150px;
 }
