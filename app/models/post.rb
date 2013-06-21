@@ -3,9 +3,7 @@ class Post < ActiveRecord::Base
 
   attr_accessible :image, :location, :message
 
-  has_attached_file :image, styles: {
-    thumb: '720x720!'
-  }
+  has_attached_file :image, :styles => { thumb: '720x720!' }, :auto_orient => false
 
   # get a random post that this user has not already received
   def self.random(user)
