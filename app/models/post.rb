@@ -9,4 +9,8 @@ class Post < ActiveRecord::Base
   def self.random(user)
   end
 
+  def image_url
+  	image.url(:thumb)
+  end
+
 end

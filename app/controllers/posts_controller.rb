@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     if @post.save
-      render :nothing => true, :status => :ok, :content_type => 'text/html'
+      render :json => @post.to_json(:methods => [:image_url]), :status => :ok
     else
       render :json => @post.errors, :status => :unprocessable_entity
     end
