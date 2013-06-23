@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130621045558) do
+ActiveRecord::Schema.define(:version => 20130623220455) do
 
   create_table "posts", :force => true do |t|
     t.text     "message"
@@ -25,10 +25,9 @@ ActiveRecord::Schema.define(:version => 20130621045558) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "installation_id"
-    t.string   "device_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "void_id"
   end
 
   create_table "users_posts", :force => true do |t|
