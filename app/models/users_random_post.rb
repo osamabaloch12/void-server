@@ -1,4 +1,4 @@
-class UsersRandomPosts < ActiveRecord::Base
+class UsersRandomPost < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
 
