@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
   has_many :users_posts
   has_many :users, :through => :users_posts
+  has_many :users_random_posts
+  has_many :random_users, :through => :users_random_posts, :class_name => "User"
 
   attr_accessible :image, :location, :message
 
@@ -8,6 +10,7 @@ class Post < ActiveRecord::Base
 
   # get a random post that this user has not already received
   def self.random(user)
+    Post.first(:offset => rand(Post.count))
   end
 
   def image_url
