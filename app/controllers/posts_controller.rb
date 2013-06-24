@@ -17,9 +17,13 @@ class PostsController < ApplicationController
 
       @user.posts << @post
       @random_post = Post.random(@user)
-      @user.random_posts << @random_post
 
-      render :json => @random_post.to_json(:methods => [:image_url]), :status => :ok
+      if @random_post.nil?
+        render :json => Post.new.to_json(:methods => [:image_url]), :status => :multi_status
+      else
+        @user.random_posts << @random_post
+        render :json => @random_post.to_json(:methods => [:image_url]), :status => :ok
+      end
     else
       render :json => @post.errors, :status => :unprocessable_entity
     end

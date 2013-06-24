@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
 
   # get a random post that this user has not already received
   def self.random(user)
-    Post.first(:offset => rand(Post.count))
+    Post.where('id NOT IN (?)', user.related_posts.map(&:id)).first(:offset => rand(Post.count))
   end
 
   def image_url

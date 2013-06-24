@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
   has_many :random_posts, :through => :users_random_posts, :source => :post
 
   attr_accessible :void_id
+
+  def related_posts
+    posts | random_posts
+  end
 end
