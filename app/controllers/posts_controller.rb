@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    render :json => @user.random_posts, :status => :ok
+    render :json => @user.random_posts.to_json(:methods => [:image_url]), :status => :ok
   end
 
   private
