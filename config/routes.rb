@@ -1,4 +1,4 @@
 Void::Application.routes.draw do
-  resources :posts, :only => [:create, :show, :destroy]
+  resources :posts, :only => [:create, :index]
   root :to => 'application#index'
 end
