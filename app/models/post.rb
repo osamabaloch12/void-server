@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   has_many :users_posts
   has_many :users, :through => :users_posts
   has_many :users_random_posts
-  has_many :random_users, :through => :users_random_posts, :class_name => "User"
+  has_many :random_users, :through => :users_random_posts, :source => :user
 
   attr_accessible :image, :location, :message
 
