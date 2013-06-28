@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    render :json => @user.random_posts.order('users_random_posts.created_at DESC').to_json(:methods => [:image_url]), :status => :ok
+    render :json => @user.ordered_random_posts.to_json(:methods => [:image_url]), :status => :ok
   end
 
   private

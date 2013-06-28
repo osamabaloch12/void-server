@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
 
   attr_accessible :void_id
 
+  def ordered_random_posts
+    random_posts.order('"users_random_posts"."created_at" DESC')
+  end
+
   def related_posts
     posts | random_posts
   end
