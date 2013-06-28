@@ -6,7 +6,6 @@ class Post < ActiveRecord::Base
 
   attr_accessible :image, :location, :message
 
-  #  has_attached_file :image, :styles => { :square => { :geometry => '720x720^', :auto_orient => false } }
   has_attached_file :image,
   :styles => {
     :square => '720x720^'
