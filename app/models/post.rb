@@ -7,10 +7,13 @@ class Post < ActiveRecord::Base
   attr_accessible :image, :location, :message
 
   #  has_attached_file :image, :styles => { :square => { :geometry => '720x720^', :auto_orient => false } }
-  has_attached_file :image, :convert_options => {
-    :square => " -thumbnail 720x720^ -gravity center -extent 720x720",
+  has_attached_file :image,
+  :styles => {
+    :square => '720x720^'
+  },
+  :convert_options => {
+    :square => " -gravity center -extent 720x720",
   }
-  # convert laur.png -auto-orient -thumbnail 720x720^ -gravity center -extent 720x720  cut_to_fit.png
 
   # get a random post that this user has not already received
   def self.random(user)
