@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
   def related_posts
     posts | random_posts
   end
+
+  def to_param
+    void_id
+  end
 end

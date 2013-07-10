@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_filter :init_user
+  before_filter :find_or_create_user
 
   def create
     @post = Post.new(params[:post])
@@ -28,19 +28,17 @@ class PostsController < ApplicationController
 
   private
 
-  def init_user
-    unless params[:user] && params[:user][:void_id]
-      render :nothing => true, :status => :bad_request
-      return false
+  def find_or_create_user
+    if !params[:user_id]
+      render :nothing => true, :status => :bad_request and return false
     end
 
-    @user = User.where(:void_id => params[:user][:void_id]).first
+    @user = User.where(:void_id => params[:user_id]).first
     if @user.nil?
-      @user = User.new(params[:user])
+      @user = User.new(:void_id => params[:user_id])
 
       if !@user.save
-        render :json => @user.errors, :status => :unprocessable_entity
-        return false
+        render :json => @user.errors, :status => :unprocessable_entity and return false
       end
     end
   end
