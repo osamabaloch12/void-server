@@ -13,8 +13,8 @@
  */
 
 html {
-	background-color: #111111;
-	color: #CC0071;
+	background-color: #000;
+	color: #8200CA;
 }
 
 body {
@@ -23,6 +23,10 @@ body {
 	font-stretch: normal;
 	font-weight: bold;
 	text-align: center;
+}
+
+a, a:visited {
+	color: #F4D900;
 }
 
 /* border-top = sqrt(3 * border-left^2) */
@@ -36,18 +40,18 @@ body {
 }
 
 #nabla {
-	margin-top: 80px;
+	margin-top: 40px;
 	display: inline-block;
 	border-left-width: 300px;
 	border-right-width: 300px;
-	border-top: 520px solid #CC0071;
+	border-top: 520px solid #8200CA;
 }
 
 #nabla #inner {
 	display: inline-block;
 	border-left-width: 150px;
 	border-right-width: 150px;
-	border-top: 260px solid #111111;
+	border-top: 260px solid #000;
 	position: relative;
 	top: -435px;
 	left: -150px;
