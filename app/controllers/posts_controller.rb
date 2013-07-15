@@ -6,7 +6,6 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
 
     if @post.save
-      init_user
 
       @user.posts << @post
       @random_post = Post.random(@user)
