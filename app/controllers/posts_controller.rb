@@ -25,6 +25,17 @@ class PostsController < ApplicationController
     render :json => @user.ordered_random_posts.to_json(:methods => [:image_url]), :status => :ok
   end
 
+  def destroy
+    @post = @user.random_posts.where(:id => params[:id]).first
+
+    if @post
+      @post.destroy
+      render :nothing => :true, :status => :no_content
+    else
+      render :nothing => :true, :status => :not_found
+    end
+  end
+
   private
 
   def find_or_create_user
