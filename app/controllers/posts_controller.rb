@@ -22,15 +22,16 @@ class PostsController < ApplicationController
   end
 
   def index
-    render :json => @user.ordered_random_posts.to_json(:methods => [:image_url]), :status => :ok
+    render :json => @user.active_random_posts.to_json(:methods => [:image_url]), :status => :ok
   end
 
   def destroy
     # disconnect the user from the given post
-    @post = @user.users_random_posts.where(:post_id => params[:id]).first
+    @urp = @user.users_random_posts.where(:post_id => params[:id]).first
 
-    if @post
-      @post.destroy
+    if @urp
+      @urp.deleted = true
+      @urp.save
       render :nothing => :true, :status => :no_content
     else
       render :nothing => :true, :status => :not_found
