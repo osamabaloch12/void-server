@@ -32,10 +32,8 @@ class PostsController < ApplicationController
     if @urp
       @urp.deleted = true
       @urp.save
-      # render :nothing => :true, :status => :no_content, :content_type => 'text/html'
       head :no_content
     else
-      # render :nothing => :true, :status => :not_found, :content_type => 'text/html'
       head :not_found
     end
   end

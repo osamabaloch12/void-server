@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
     random_posts.where('"users_random_posts"."deleted" = ?', false)
   end
 
+  def inactive_random_posts
+    random_posts.where('"users_random_posts"."deleted" = ?', true)
+  end
+
   def related_posts
     posts | random_posts
   end
