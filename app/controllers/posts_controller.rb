@@ -26,7 +26,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = @user.random_posts.where(:id => params[:id]).first
+    # disconnect the user from the given post
+    @post = @user.users_random_posts.where(:post_id => params[:id]).first
 
     if @post
       @post.destroy
