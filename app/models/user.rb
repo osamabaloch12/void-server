@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :users_posts
   has_many :posts, :through => :users_posts
-  has_many :users_random_posts
+  has_many :users_random_posts, :dependent => :destroy
   has_many :random_posts, :through => :users_random_posts, :source => :post, :order => '"users_random_posts"."created_at" DESC'
 
   attr_accessible :void_id
