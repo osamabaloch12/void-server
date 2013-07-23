@@ -52,6 +52,12 @@ class PostsController < ApplicationController
       if !@user.save
         render :json => @user.errors, :status => :unprocessable_entity and return false
       end
+
+      # give the user their first post
+      @random_post = Post.random(@user)
+      unless @random_post.nil?
+        @user.random_posts << @random_post
+      end
     end
   end
 
