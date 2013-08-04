@@ -3,6 +3,8 @@ class Post < ActiveRecord::Base
   has_many :users, :through => :users_posts
   has_many :users_random_posts, :dependent => :destroy
   has_many :random_users, :through => :users_random_posts, :source => :user
+  has_many :likes
+  has_many :likers, :through => :likes, :source => :user
 
   attr_accessible :image, :location, :message, :latitude, :longitude
 
