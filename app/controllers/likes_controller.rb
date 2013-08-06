@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   before_filter :find_or_create_user, :find_post
 
   def create
-    @like = Like.new(:post => @post, :user => @user)
+    @like = Like.new(:post_id => @post.id, :user_id => @user.id)
 
     if @like.save
       head :no_content
