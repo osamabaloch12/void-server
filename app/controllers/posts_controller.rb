@@ -14,7 +14,7 @@ class PostsController < ApplicationController
         render :json => Post.new.to_json(:methods => [:image_url]), :status => :multi_status
       else
         @user.random_posts << @random_post
-        render :json => @random_post.to_json(:methods => [:image_url]), :status => :ok
+        render :json => @random_post.to_json(:methods => [:image_url], :liker => @user), :status => :ok
       end
     else
       render :json => @post.errors, :status => :unprocessable_entity
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    render :json => @user.active_random_posts.to_json(:methods => [:image_url]), :status => :ok
+    render :json => @user.active_random_posts.to_json(:methods => [:image_url], :liker => @user), :status => :ok
   end
 
   def destroy

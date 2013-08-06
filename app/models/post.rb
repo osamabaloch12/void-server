@@ -28,4 +28,14 @@ class Post < ActiveRecord::Base
   	image.url(:square)
   end
 
+  def liked_by_user?(user)
+    likers.where(:id => user.id).exists?
+  end
+
+  def as_json(options = {})
+    json = super(options)
+    json['liked'] = liked_by_user?(options[:liker]) if options[:liker]
+    json
+  end
+
 end
