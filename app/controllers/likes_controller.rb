@@ -24,7 +24,7 @@ class LikesController < ApplicationController
 
   private
 
-  def get_post
-    @post = Post.where(:id => params[:post_id]).first
+  def find_post
+    @post = Post.where(:id => params[:id]).first
   end
 end
