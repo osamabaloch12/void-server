@@ -16,6 +16,9 @@ class Post < ActiveRecord::Base
     :square => " -gravity center -extent 720x720",
   }
 
+  validates :image, :presence => true
+  validates :location, :presence => true
+
   # get a random post that this user has not already received
   def self.random(user)
     related_posts = user.related_posts

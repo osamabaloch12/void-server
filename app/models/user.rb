@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :void_id
 
+  validates :void_id, :uniqueness => true, :presence => true
+
   def active_random_posts
     random_posts.where('"users_random_posts"."deleted" = ?', false)
   end
